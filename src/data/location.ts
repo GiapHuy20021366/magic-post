@@ -1,5 +1,6 @@
 export interface ILocation {
-    name: string;
-    address: string;
-    category: "GATHERING POINT" | "TRANSACTION POINT"
+    name: string,
+    address: string,
+    category: "GATHERING POINT" | "TRANSACTION POINT",
+    createdAt: Date,
 }

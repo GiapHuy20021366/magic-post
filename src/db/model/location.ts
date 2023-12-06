@@ -22,6 +22,11 @@ const locationSchema = new Schema<ILocation, ILocationModel, ILocationMethods>({
   category: {
     type: String,
     required: true,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+    required: true,
   }
 });
 

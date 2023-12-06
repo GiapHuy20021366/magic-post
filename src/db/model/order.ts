@@ -22,6 +22,7 @@ const orderSchema = new Schema<IOrder, IOrderModel, IOrderMethods>({
   createdAt: {
     type: Date,
     required: true,
+    default: Date.now,
   },
   teller: {
     type: Schema.ObjectId,

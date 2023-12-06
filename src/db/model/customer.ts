@@ -26,7 +26,12 @@ const customerSchema = new Schema<ICustomer, ICustomerModel, ICustomerMethods>({
     type: String,
     required: true,
   },
-  email: String
+  email: String,
+  createdAt: {
+    type: Date,
+    default: Date.now,
+    required: true,
+  }
 });
 
 // Statics

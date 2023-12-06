@@ -2,17 +2,18 @@ import { IAccount } from "./account";
 import { ILocation } from "./location";
 import { IOrder } from "./order";
 import { Status } from "./status";
-import { Type } from "./type";
+import { TransactionType } from "./transaction-type";
 
 export interface ITransaction {
     order: IOrder,
-    type: Type,
-    postLocation: ILocation,
-    getLocation: ILocation,
-    postStaff: IAccount,
-    getStaff: IAccount,
-    shipper: IAccount,
+    transactionType: TransactionType,
+    postLocation?: ILocation,
+    getLocation?: ILocation,
+    postStaff?: IAccount,
+    getStaff?: IAccount,
+    shipper?: IAccount,
     status: Status,
-    note: String,
+    note: string,
     refuseStatus: boolean,
+    createdAt: Date,
 }

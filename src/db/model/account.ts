@@ -25,6 +25,11 @@ const accountSchema = new Schema<IAccount, IAccountModel, IAccountMethods>({
     required: true
   },
   location: Schema.ObjectId,
+  createdAt: {
+    type: Date,
+    default: Date.now,
+    required: true,
+  }
 });
 
 // Statics

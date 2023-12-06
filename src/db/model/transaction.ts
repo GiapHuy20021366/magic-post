@@ -15,7 +15,7 @@ const transactionSchema = new Schema<ITransaction, ITransactionModel, ITransacti
         type: Schema.ObjectId,
         required: true,
     }, 
-    type: {
+    transactionType: {
         type: String,
         required: true,
     }, 
@@ -38,8 +38,14 @@ const transactionSchema = new Schema<ITransaction, ITransactionModel, ITransacti
         type: String,
         required: true,
     },
+    note: String,
     refuseStatus: {
         type: Boolean,
+        required: true,
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now,
         required: true,
     }
 });

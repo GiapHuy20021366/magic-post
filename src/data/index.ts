@@ -22,5 +22,5 @@ export { ICustomer } from "./customer";
 export { ILocation } from "./location";
 export { IOrder } from "./order";
 import { Status } from "./status";
-import { Type } from "./type";
+import { TransactionType } from "./transaction-type";
 export { ITransaction } from "./transaction";

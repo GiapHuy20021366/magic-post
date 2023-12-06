@@ -1,0 +1,1 @@
+export type TransactionType = "BETWEEN LOCATION" | "DELIVERY";
