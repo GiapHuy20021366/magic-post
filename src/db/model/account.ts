@@ -29,7 +29,25 @@ const accountSchema = new Schema<IAccount, IAccountModel, IAccountMethods>({
     type: Date,
     default: Date.now,
     required: true,
-  }
+  },
+  name: {
+    type: String,
+    required: true,
+  },
+  birth: {
+    type: Date,
+  },
+  sex: String,
+  phone: {
+    type: String,
+    required: true,
+    index: true,
+  },
+  address: {
+    type: String,
+    required: true,
+  },
+  email: String
 });
 
 // Statics

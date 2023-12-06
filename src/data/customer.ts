@@ -1,6 +1,6 @@
 export interface ICustomer {
     name: string,
-    birth?: number,
+    birth?: Date,
     sex?: "Male" | "Female",
     phone: string,
     address: string,

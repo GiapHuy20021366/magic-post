@@ -15,7 +15,7 @@ const customerSchema = new Schema<ICustomer, ICustomerModel, ICustomerMethods>({
     type: String,
     required: true,
   },
-  birth: String,
+  birth: Date,
   sex: String,
   phone: {
     type: String,
