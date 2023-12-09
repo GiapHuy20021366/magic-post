@@ -16,11 +16,35 @@ export { HttpResponseCode } from "./http-response-code";
 export { toResponseSuccessData } from "./to-response-success-data";
 export { toAuthToken, AuthLike } from "./to-auth-token";
 
-export { Role } from "./role";
+export { Role, roles, toRoleLevel } from "./role";
 export { IAccount } from "./account";
 export { ICustomer } from "./customer";
 export { ILocation } from "./location";
 export { IOrder } from "./order";
-import { Status } from "./status";
-import { TransactionType } from "./transaction-type";
+export { Status } from "./status";
+export { TransactionType } from "./transaction-type";
 export { ITransaction } from "./transaction";
+export { LocationCategory, locationCategories } from "./location-category";
+
+export {
+    throwErrorIfInvalidFormat,
+    throwErrorIfNotFound,
+    toInvalidFormatError,
+    toNotFoundError
+} from "./to-error";
+
+export {
+    isAllNotEmptyString,
+    isAllObjectId,
+    isArray,
+    isCoordinates,
+    isEmptyString,
+    isInteger,
+    isNotEmptyString,
+    isNotEmptyStringArray,
+    isNumber,
+    isObjectId,
+    isString,
+    isValidRole,
+    isValidLocationCategory
+} from "./data-validate";

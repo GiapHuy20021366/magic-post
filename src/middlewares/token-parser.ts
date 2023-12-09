@@ -1,37 +1,30 @@
 import { NextFunction, Request, Response } from "express";
 import { AuthLike, UnauthorizationError } from "../data";
+import { verifyToken } from "../utils";
 
-export const tokenParser = (request: Request<{}, {}, {}, {}>, _response: Response, next: NextFunction) => {
-    const jsonToken = request.headers.authorization;
-    if (jsonToken == null) {
-        return next(new UnauthorizationError({
-            message: "No token found",
-            data: {
-                reason: "no-token-found",
-                target: "token"
-            }
-        }))
-    }
-    try {
-        const parsed = JSON.parse(jsonToken);
-        if (parsed.email == null) {
-            return next(new UnauthorizationError({
+export const tokenParser = (request: Request<{}, {}, {}, {}>, response: Response, next: NextFunction) => {
+    const verified = verifyToken(request.headers.authorization);
+    if (verified == null || typeof verified === "string") {
+        return response.status(400).json({
+            err: {
                 message: "Invalid token",
                 data: {
-                    reason: "invalid-token",
-                    target: "token"
+                    target: "token",
+                    reason: "invalid-token"
                 }
-            }))
-        }
-        request.authContext = parsed as AuthLike;
-        next();
-    } catch (error) {
+            }
+        })
+    }
+    const auth = verified.data;
+    if (auth?.role == null || auth?._id == null) {
         return next(new UnauthorizationError({
-            message: "No token found",
+            message: "Invalid token",
             data: {
-                reason: "no-token-found",
+                reason: "invalid-token",
                 target: "token"
             }
         }))
     }
+    request.authContext = auth as AuthLike;
+    next();
 }
